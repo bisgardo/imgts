@@ -23,8 +23,8 @@ Rename files
 java -jar target/imgts-1.0-SNAPSHOT.jar <files> > renames.txt
 less renames.txt # Check that it looks correct.
                  # Modify file appropriately if it doesn't.
-cat renames.txt | while IFS=$'\t' read l r; do
-  mv "$l" "$(dirname "$l")/$r" # Rename inside the file's old location.
-                               # Prefix command with "echo" to see the effect nondestructively.
+cat renames.txt | while IFS=$'\t' read -r l r; do
+    mv "$l" "$(dirname "$l")/$r" # Rename inside the file's old location.
+                                 # Prefix command with "echo" to see the effect nondestructively.
 done
 ```
